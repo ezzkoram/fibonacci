@@ -25,3 +25,12 @@ func TestFibonacciSlice(t *testing.T) {
 		}
 	}
 }
+
+func benchmarkFibonacciSliceN(n uint64, b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		FibonacciSlice(n)
+	}
+}
+func BenchmarkFibonacciSlice1(b *testing.B)  { benchmarkFibonacciSliceN(1, b) }
+func BenchmarkFibonacciSlice5(b *testing.B)  { benchmarkFibonacciSliceN(5, b) }
+func BenchmarkFibonacciSlice15(b *testing.B) { benchmarkFibonacciSliceN(15, b) }
